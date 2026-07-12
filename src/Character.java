@@ -1,13 +1,15 @@
+import java.util.Random;
+
 public abstract class Character {
 
     private String name;
-    private float health;
-    private float maxHealth;
-    private float atkDamage;
-    private float defense;
+    private int health;
+    private int maxHealth;
+    private int atkDamage;
+    private int defense;
 
 
-    public Character(String name, float health, float maxHealth, float atkDamage, float defense)
+    public Character(String name, int health, int maxHealth, int atkDamage, int defense)
     {
         this.name = name;
         this.health = health;
@@ -18,9 +20,12 @@ public abstract class Character {
 
     public abstract void attack(Character target);
 
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
-        float damageTaken = damage - defense;
+
+
+
+        int damageTaken = damage - defense;
 
         if(damageTaken < 0 )
         {
@@ -47,21 +52,27 @@ public abstract class Character {
         return name;
     }
 
-    public float getHealth()
+    public int getHealth()
     {
         return health;
     }
 
-    public float getMaxHealth() {
+    public int getMaxHealth() {
         return  maxHealth;
     }
 
-    public float getAtkDamage()
+    public int getAtkDamage()
     {
-        return atkDamage;
+        //generate random number from 1 to atkDamge;
+        Random rand = new Random();
+
+        int min = 1;
+        int max = atkDamage;
+
+        return rand.nextInt(max - min + 1 ) + min;
     }
 
-    public float getDefense()
+    public int getDefense()
     {
         return defense;
     }

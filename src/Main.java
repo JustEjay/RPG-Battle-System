@@ -9,6 +9,6 @@ public class Main {
         battle.startBattle();
     }
 
-    }
+}
 
 
