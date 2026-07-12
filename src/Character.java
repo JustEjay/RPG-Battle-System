@@ -63,10 +63,7 @@ public abstract class Character {
 
     public int calculateAttackDamage()
     {
-        int min = 1;
-        int max = atkDamage;
-
-        int damage = rand.nextInt(max - min + 1 ) + min;
+        int damage = rand.nextInt(atkDamage) + 1;
 
         if(rand.nextDouble() < critChance){
             System.out.println("CRITICAL HIT!");
