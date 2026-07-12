@@ -2,7 +2,7 @@ public class Mage extends Character{
 
     public Mage(String name)
     {
-        super(name, 100, 100, 40, 5,.2, 3);
+        super(name, 100, 40, 5,.2, 3);
     }
 
     @Override

@@ -11,11 +11,11 @@ public abstract class Character {
     private int critMultiplier;
     private Random rand = new Random();
 
-    public Character(String name, int health, int maxHealth, int atkDamage, int defense, double critChance, int critMultiplier)
+    public Character(String name, int health, int atkDamage, int defense, double critChance, int critMultiplier)
     {
         this.name = name;
         this.health = health;
-        this.maxHealth = maxHealth;
+        this.maxHealth = health;
         this.atkDamage = atkDamage;
         this.defense = defense;
         this.critChance  = critChance;
