@@ -44,7 +44,7 @@ public class Battle {
     {
         System.out.println("Hero: " + player.getName() + " Health: " + player.getHealth());
         System.out.println();
-        System.out.println("Hero: " + enemy.getName() + " Health: " + enemy.getHealth());
+        System.out.println("Enemy: " + enemy.getName() + " Health: " + enemy.getHealth());
         System.out.println();
     }
 

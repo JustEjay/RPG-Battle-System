@@ -27,8 +27,6 @@ public abstract class Character {
     public void takeDamage(int damage)
     {
 
-
-
         int damageTaken = damage - defense;
 
         if(damageTaken < 0 )
