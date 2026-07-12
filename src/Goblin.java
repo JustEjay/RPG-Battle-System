@@ -1,7 +1,7 @@
 public class Goblin extends Character{
 
     public Goblin(String name){
-        super(name, 100, 100, 40, 5);
+        super(name, 100, 100, 40, 5,.1,2);
     }
 
     @Override

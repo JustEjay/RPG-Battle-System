@@ -7,15 +7,19 @@ public abstract class Character {
     private int maxHealth;
     private int atkDamage;
     private int defense;
+    private double critChance;
+    private int critMultiplier;
+    private Random rand = new Random();
 
-
-    public Character(String name, int health, int maxHealth, int atkDamage, int defense)
+    public Character(String name, int health, int maxHealth, int atkDamage, int defense, double critChance, int critMultiplier)
     {
         this.name = name;
         this.health = health;
         this.maxHealth = maxHealth;
         this.atkDamage = atkDamage;
         this.defense = defense;
+        this.critChance  = critChance;
+        this.critMultiplier = critMultiplier;
     }
 
     public abstract void attack(Character target);
@@ -39,7 +43,7 @@ public abstract class Character {
             health = 0;
         }
 
-        System.out.println(name + "Took: " + damageTaken + " Damage");
+        System.out.println(name + " Took: " + damageTaken + " Damage");
     }
 
     public boolean isAlive()
@@ -63,13 +67,16 @@ public abstract class Character {
 
     public int getAtkDamage()
     {
-        //generate random number from 1 to atkDamge;
-        Random rand = new Random();
-
         int min = 1;
         int max = atkDamage;
 
-        return rand.nextInt(max - min + 1 ) + min;
+        int damage = rand.nextInt(max - min + 1 ) + min;
+
+        if(rand.nextDouble() < critChance){
+            System.out.println("CRITICAL HIT!");
+            damage *= critMultiplier;
+        }
+        return damage;
     }
 
     public int getDefense()
