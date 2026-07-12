@@ -8,6 +8,6 @@ public class Goblin extends Character{
     public void attack(Character target)
     {
         System.out.println(getName() + " Swings small dagger.");
-        target.takeDamage(getAtkDamage());
+        target.takeDamage(calculateAttackDamage());
     }
 }

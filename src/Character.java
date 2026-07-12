@@ -61,11 +61,7 @@ public abstract class Character {
         return health;
     }
 
-    public int getMaxHealth() {
-        return  maxHealth;
-    }
-
-    public int getAtkDamage()
+    public int calculateAttackDamage()
     {
         int min = 1;
         int max = atkDamage;
@@ -79,10 +75,7 @@ public abstract class Character {
         return damage;
     }
 
-    public int getDefense()
-    {
-        return defense;
-    }
+
 
 
 }

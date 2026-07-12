@@ -9,7 +9,7 @@ public class Warrior extends Character{
     public void attack(Character target)
     {
         System.out.println(getName() + " Swings their Axe!");
-        target.takeDamage(getAtkDamage());
+        target.takeDamage(calculateAttackDamage());
     }
 
 

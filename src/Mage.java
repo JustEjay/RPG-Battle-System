@@ -9,7 +9,7 @@ public class Mage extends Character{
     public void attack(Character target)
     {
         System.out.println(getName() + " Cast Fire Ball!");
-        target.takeDamage(getAtkDamage());
+        target.takeDamage(calculateAttackDamage());
     }
 
 }
