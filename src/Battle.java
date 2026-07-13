@@ -6,13 +6,14 @@ public class Battle {
     private Character player;
     private Character enemy;
     private int round;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
     private final Random rand = new Random();
 
-    public Battle(Character player, Character enemy) {
+    public Battle(Character player, Character enemy, Scanner scanner) {
         this.player = player;
         this.enemy = enemy;
         this.round = 1;
+        this.scanner = scanner;
     }
 
     public void startBattle() {
@@ -30,7 +31,7 @@ public class Battle {
                 System.out.println("You have killed the " + enemy.getName());
                 break;
             }
-            
+
             performAttack(enemy,player, enemyChoice());
 
             if(!player.isAlive())

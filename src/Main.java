@@ -29,7 +29,7 @@ public class Main {
 
         System.out.println("\nWatch out! A " + enemy.getName() + " appears!");
 
-        Battle battle = new Battle(player, enemy);
+        Battle battle = new Battle(player, enemy, scanner);
         battle.startBattle();
 
         scanner.close();
