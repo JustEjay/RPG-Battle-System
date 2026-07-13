@@ -64,13 +64,20 @@ public class Battle {
             System.out.println("2: Special Attack");
             System.out.println("3: Ultimate Attack");
 
-            int playerChoice = scanner.nextInt();
+            try {
+                int playerChoice = scanner.nextInt();
 
-            if (playerChoice < 1 || playerChoice > 3) {
-                System.out.println("Invalid number, try again.");
-            } else {
-                return playerChoice;
+                if (playerChoice < 1 || playerChoice > 3) {
+                    System.out.println("Invalid number, try again.");
+                } else {
+                    return playerChoice;
+                }
+            } catch (java.util.InputMismatchException e)
+            {
+                System.out.println("That's not a number. Try again.");
+                scanner.next();
             }
+
         }
 
     }

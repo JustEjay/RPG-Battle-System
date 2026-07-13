@@ -16,7 +16,14 @@ public class Main {
         System.out.println("1. Warrior");
         System.out.println("2. Mage");
         System.out.print("Choice (1 or 2): ");
-        int classChoice = scanner.nextInt();
+
+        int classChoice = 1; //Default Warrior
+        try {
+            classChoice = scanner.nextInt();
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Invalid input, defaulting to Warrior.");
+            scanner.next();
+        }
 
         if (classChoice == 2) {
             player = new Mage(playerName);
