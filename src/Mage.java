@@ -6,10 +6,24 @@ public class Mage extends Character{
     }
 
     @Override
-    public void attack(Character target)
+    public void basicAttack(Character target)
     {
-        System.out.println(getName() + " Cast Fire Ball!");
+        System.out.println(getName() + " Cast Fireball");
         target.takeDamage(calculateAttackDamage());
+    }
+
+    @Override
+    public void specialAttack(Character target)
+    {
+        System.out.println(getName() + " Judgment");
+        target.takeDamage(calculateAttackDamage() + 10 );
+    }
+
+    @Override
+    public void ultimateAttack(Character target)
+    {
+        System.out.println(getName() + " Cast darkvoid");
+        target.takeDamage(calculateAttackDamage() + 30 );
     }
 
 }

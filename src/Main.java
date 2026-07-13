@@ -5,7 +5,6 @@ public class Main {
 
     public static void main(String[] args){
         Character player;
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("--- WELCOME TO THE RING---");
@@ -43,7 +42,7 @@ public class Main {
             if (roll == 0) {
                 return new Goblin("Sneaky Goby");
             } else if (roll == 1) {
-                return new Goblin("Hobgoblin Bruiser");
+                return new Warrior("Hobgoblin Bruiser");
             } else {
                 return new Mage("Dark Cultist");
             }

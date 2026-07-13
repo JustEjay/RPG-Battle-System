@@ -22,7 +22,10 @@ public abstract class Character {
         this.critMultiplier = critMultiplier;
     }
 
-    public abstract void attack(Character target);
+    public abstract void basicAttack(Character target);
+    public abstract void specialAttack(Character target);
+    public abstract void ultimateAttack(Character target);
+
 
     public void takeDamage(int damage)
     {

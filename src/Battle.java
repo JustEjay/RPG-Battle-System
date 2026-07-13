@@ -1,9 +1,13 @@
+import java.util.Random;
+import java.util.Scanner;
 
 public class Battle {
 
     private Character player;
     private Character enemy;
     private int round;
+    Scanner scanner = new Scanner(System.in);
+    Random rand = new Random();
 
     public Battle(Character player, Character enemy) {
         this.player = player;
@@ -19,7 +23,20 @@ public class Battle {
         {
             displayRound();
 
-            player.attack(enemy);
+            int attack = playerInput();
+            if(attack == 1)
+            {
+                player.basicAttack(enemy);
+            } else if (attack == 2)
+            {
+                player.specialAttack(enemy);
+            } else if (attack == 3)
+            {
+                player.ultimateAttack(enemy);
+            }
+            else {
+                player.basicAttack(enemy);
+            }
 
             if(!enemy.isAlive())
             {
@@ -27,7 +44,17 @@ public class Battle {
                 break;
             }
 
-            enemy.attack(player);
+            int enemyAtk = rand.nextInt(3) +1 ;
+
+            if(enemyAtk == 1)
+            {
+                enemy.basicAttack(player);
+            } else if (enemyAtk == 2){
+                enemy.specialAttack(player);
+            }
+            else {
+                enemy.ultimateAttack(player);
+            }
 
             if(!player.isAlive())
             {
@@ -50,5 +77,23 @@ public class Battle {
 
     private void displayRound() {
         System.out.println("\n--- Round " + round + " ---");
+    }
+
+    private int playerInput() {
+        while (true) {
+            System.out.println("Select your attack!");
+            System.out.println("1: Basic Attack");
+            System.out.println("2: Special Attack");
+            System.out.println("3: Ultimate Attack");
+
+            int playerChoice = scanner.nextInt();
+
+            if (playerChoice < 1 || playerChoice > 3) {
+                System.out.println("Invalid number, try again.");
+            } else {
+                return playerChoice;
+            }
+        }
+
     }
 }
