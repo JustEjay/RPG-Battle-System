@@ -6,8 +6,8 @@ public class Battle {
     private Character player;
     private Character enemy;
     private int round;
-    Scanner scanner = new Scanner(System.in);
-    Random rand = new Random();
+    private final Scanner scanner = new Scanner(System.in);
+    private final Random rand = new Random();
 
     public Battle(Character player, Character enemy) {
         this.player = player;
@@ -23,38 +23,15 @@ public class Battle {
         {
             displayRound();
 
-            int attack = playerInput();
-            if(attack == 1)
-            {
-                player.basicAttack(enemy);
-            } else if (attack == 2)
-            {
-                player.specialAttack(enemy);
-            } else if (attack == 3)
-            {
-                player.ultimateAttack(enemy);
-            }
-            else {
-                player.basicAttack(enemy);
-            }
+            performAttack(player, enemy, playerInput());
 
             if(!enemy.isAlive())
             {
                 System.out.println("You have killed the " + enemy.getName());
                 break;
             }
-
-            int enemyAtk = rand.nextInt(3) +1 ;
-
-            if(enemyAtk == 1)
-            {
-                enemy.basicAttack(player);
-            } else if (enemyAtk == 2){
-                enemy.specialAttack(player);
-            }
-            else {
-                enemy.ultimateAttack(player);
-            }
+            
+            performAttack(enemy,player, enemyChoice());
 
             if(!player.isAlive())
             {
@@ -95,5 +72,23 @@ public class Battle {
             }
         }
 
+    }
+    private int enemyChoice()
+    {
+        return rand.nextInt(3) +1 ;
+    }
+
+    private void performAttack(Character attacker, Character target, int attackChoice)
+    {
+        if(attackChoice == 1)
+        {
+            attacker.basicAttack(target);
+        } else if (attackChoice == 2)
+        {
+            attacker.specialAttack(target);
+        }
+        else {
+            attacker.ultimateAttack(target);
+        }
     }
 }
