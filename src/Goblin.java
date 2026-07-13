@@ -21,7 +21,7 @@ public class Goblin extends Character{
     @Override
     public void ultimateAttack(Character target)
     {
-        System.out.println(getName() + "Throwing dagger");
+        System.out.println(getName() + " Throwing dagger");
         target.takeDamage(calculateAttackDamage() + 20 );
     }
 }

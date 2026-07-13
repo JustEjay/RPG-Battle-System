@@ -22,7 +22,7 @@ public class Warrior extends Character{
     @Override
     public void ultimateAttack(Character target)
     {
-        System.out.println(getName() + "Ground pounds");
+        System.out.println(getName() + " Ground pounds");
         target.takeDamage(calculateAttackDamage() + 20 );
     }
 
